@@ -1,0 +1,242 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background: linear-gradient(135deg, #8B7355 0%, #3D2817 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .slide-container {
+            width: 100%;
+            max-width: 900px;
+            background: #F5E6D3;
+            border-radius: 8px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+            overflow: hidden;
+            border: 3px solid #8B7355;
+        }
+        
+        .slide {
+            display: none;
+            padding: 60px 50px;
+            min-height: 600px;
+            background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%);
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+            border-top: 2px solid #D4AF37;
+            border-bottom: 2px solid #D4AF37;
+            position: relative;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 115, 85, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide h1 {
+            font-size: 3.5em;
+            color: #3D2817;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+        }
+        
+        .slide h2 {
+            font-size: 2.5em;
+            color: #8B4513;
+            margin-bottom: 30px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+            text-decoration: underline;
+            text-decoration-color: #D4AF37;
+            text-underline-offset: 8px;
+        }
+        
+        .slide h3 {
+            font-size: 1.8em;
+            color: #5D4E37;
+            margin-bottom: 30px;
+        }
+        
+        .slide p, .slide li {
+            font-size: 1.2em;
+            color: #3D2817;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .slide ul {
+            text-align: left;
+            display: inline-block;
+            margin-top: 30px;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 20px 30px;
+            border-left: 4px solid #D4AF37;
+            border-radius: 4px;
+        }
+        
+        .slide li {
+            margin-bottom: 20px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .slide li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #D4AF37;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #E8D4B8 0%, #D4C4B0 100%);
+            border: 3px dashed #8B7355;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            color: #8B7355;
+            font-style: italic;
+            position: relative;
+        }
+        
+    
+        
+        .slide img {
+            max-width: 90%;
+            height: auto;
+            max-height: 300px;
+            margin: 20px auto;
+            border: 3px solid #8B7355;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+            background: linear-gradient(135deg, #3D2817 0%, #5D4E37 100%);
+            border-top: 3px solid #D4AF37;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA8C3D 100%);
+            color: #3D2817;
+            border: 2px solid #8B7355;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+        }
+        
+        button:hover {
+            background: linear-gradient(135deg, #E8C44D 0%, #B8963D 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        button:disabled {
+            background: #A0826D;
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: none;
+        }
+        
+        .slide-counter {
+            color: #D4AF37;
+            font-size: 1.2em;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+        }
+        
+        .slide-number {
+            color: #D4AF37;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            color: #8B7355;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .highlight {
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .slide.title-slide {
+            background: linear-gradient(135deg, #8B7355 0%, #5D4E37 100%);
+        }
+        
+        .slide.title-slide h1 {
+            color: #D4AF37;
+            font-size: 4em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+        
+        .slide.title-slide p {
+            color: #F5E6D3;
+            font-size: 1.5em;
+        }
+
+        .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .decorative-line {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%);
+            margin: 20px auto;
+        }
+ 
